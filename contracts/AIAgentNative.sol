@@ -8,6 +8,7 @@ contract AIAgent is ReentrancyGuard {
     uint256 public stakedAmount;
 
     constructor(address _owner) payable {
+        require(msg.value > 0, "Must provide stake");
         owner = _owner;
         stakedAmount = msg.value;
     }
